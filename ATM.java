@@ -38,6 +38,13 @@ public class ATM {
         return accountMap.get(userId);
     }
 
-    
+    public double depositMoney (String userId, double amount) throws Exception {
+        
+        if (!accountMap.containsKey(userId))
+            throw new Exception("Error: You're broke AF.");
+
+        accountMap.put(userId, accountMap.get(userId) + amount);
+        return amount;
+    }
 
 }
