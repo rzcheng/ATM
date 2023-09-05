@@ -12,12 +12,10 @@ public class ATM {
     }
 
     public void openAccount(String userId, double amount) throws Exception {
-        if (accountMap.containsKey(userId)){
+        if (accountMap.containsKey(userId))
             throw new Exception("Error: Account already exists.");
-        }
-        else {
+
             accountMap.put(userId, amount);
-        }
     }
 
     public void closeAccount (String userId) throws Exception{
@@ -32,5 +30,14 @@ public class ATM {
         }
     }
 
+    public double checkBalance (String userId) throws Exception {
+        
+        if (!accountMap.containsKey(userId))
+            throw new Exception("Error: User ID does not exist.");
+
+        return accountMap.get(userId);
+    }
+
     
+
 }
