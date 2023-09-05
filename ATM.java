@@ -1,4 +1,10 @@
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 /**
  * ATM
@@ -66,6 +72,17 @@ public class ATM {
 
         return true;
 
+    }
+
+    public void audit () throws IOException {
+
+        PrintWriter printWriter = new PrintWriter(new FileWriter("AccountAudit.txt"));
+
+        for (Entry<String, Double> acc: accountMap.entrySet()) {
+            printWriter.println("AccountEmail: " + acc.getKey() + ", AccountValue: " + acc.getValue());
+        }
+
+        printWriter.close();
     }
 
 }
