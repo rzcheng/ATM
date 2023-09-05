@@ -1,2 +1,2 @@
-AccountEmail: elon, AccountValue: 1.0001E8
-AccountEmail: acc2, AccountValue: 800.0
+AccountEmail: user2@example.com, AccountValue: 550.0
+AccountEmail: user1@example.com, AccountValue: 1050.0
