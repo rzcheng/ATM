@@ -49,11 +49,23 @@ public class ATM {
 
     public double withdrawMoney (String userId, double amount) throws Exception {
 
-        if (!accountMap.containsKey(userId))
+        if (!accountMap.containsKey(userId) || accountMap.get(userId) < amount)
             throw new Exception("Error: You're broke AF.");
 
         accountMap.put(userId, accountMap.get(userId) - amount);
         return amount;
+    }
+
+    public boolean transferMoney (String fromAccount, String toAccount, double amount) throws Exception{
+
+        if (!accountMap.containsKey(fromAccount) || !accountMap.containsKey(toAccount))
+            throw new Exception("Error: An inputted account does not exist.");
+
+        withdrawMoney(fromAccount, amount);
+        depositMoney(toAccount, amount);
+
+        return true;
+
     }
 
 }
